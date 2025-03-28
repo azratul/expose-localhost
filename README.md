@@ -92,9 +92,3 @@ Or with Neovim's built-in health check:
 ```lua
 :checkhealth expose-localhost
 ```
-
----
-
-## 📄 License
-
-MIT
