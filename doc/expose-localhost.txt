@@ -1,0 +1,65 @@
+*expose-localhost.txt*  Plugin to expose localhost via cloudflared or ngrok
+
+==============================================================================
+EXPOSE-LOCALHOST                                     *expose-localhost*
+
+This plugin provides a simple command and Lua function to expose a local port
+to the internet using either Cloudflared or Ngrok.
+
+Requirements:
+- `cloudflared` or `ngrok` installed and in $PATH
+
+==============================================================================
+USAGE                                                *expose-localhost-usage*
+
+Command:
+    :ExposeStart {port} [method]                     *:ExposeStart*
+
+Examples:
+    :ExposeStart 3000
+    :ExposeStart 8080 ngrok
+
+This will expose your localhost port using either:
+- `cloudflared tunnel --url http://localhost:{port}`
+- `ngrok http {port}` and retrieve public URL via ngrok API
+
+The resulting public URL is copied to your clipboard.
+
+Command:
+    :ExposeStop                                      *:ExposeStop*
+
+Stops the currently running tunnel (either cloudflared or ngrok).
+Useful when you want to shut down the tunnel without exiting Neovim.
+
+==============================================================================
+LUA API                                              *expose-localhost-api*
+
+You can call the function directly from Lua:
+
+    require("expose-localhost").expose(port, method)
+
+Example:
+    require("expose-localhost").expose(3000, "cloudflared")
+
+Arguments:
+- `port`: The local port to expose (number or string)
+- `method`: Either `"cloudflared"` (default) or `"ngrok"`
+
+==============================================================================
+HEALTHCHECK                                          *expose-localhost-health*
+
+Run the following to verify dependencies:
+
+    :lua require("expose-localhost").health()
+
+This checks if `cloudflared` and `ngrok` executables are available.
+
+==============================================================================
+AUTHOR                                               *expose-localhost-author*
+
+Created by Claudio Lepín
+GitHub: https://github.com/azratul/expose-localhost.nvim
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:
+

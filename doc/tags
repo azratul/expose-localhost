@@ -1,0 +1,8 @@
+:ExposeStart	expose-localhost.txt	/*:ExposeStart*
+:ExposeStop	expose-localhost.txt	/*:ExposeStop*
+expose-localhost	expose-localhost.txt	/*expose-localhost*
+expose-localhost-api	expose-localhost.txt	/*expose-localhost-api*
+expose-localhost-author	expose-localhost.txt	/*expose-localhost-author*
+expose-localhost-health	expose-localhost.txt	/*expose-localhost-health*
+expose-localhost-usage	expose-localhost.txt	/*expose-localhost-usage*
+expose-localhost.txt	expose-localhost.txt	/*expose-localhost.txt*
